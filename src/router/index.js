@@ -1,15 +1,21 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
+import Sliding from '@/components/Sliding'
+import top from '@/components/top'
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
     {
-      path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
+      path: '/Sliding',
+      name: 'Sliding',
+      component: Sliding
+    },
+    {
+      path: '/top',
+      name: 'top',
+      component: top
     }
   ]
 })
