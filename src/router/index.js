@@ -1,16 +1,28 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Sliding from '@/components/Sliding'
+import sliding from '@/components/sliding'
 import top from '@/components/top'
+import login from '@/components/login'
+import registry from'@/components/registry'
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
     {
-      path: '/Sliding',
-      name: 'Sliding',
-      component: Sliding
+      path: '/sliding',
+      name: 'sliding',
+      component: sliding
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: login
+    },
+    {
+      path: '/registry',
+      name: 'registry',
+      component: registry
     },
     {
       path: '/top',

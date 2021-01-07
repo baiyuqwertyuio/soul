@@ -37,10 +37,9 @@
 
 <script>
   import axios from 'axios';
-  import Top from "./top";
+  axios.defaults.withCredentials=true
     export default {
-      name: "Sliding",
-      components: {Top},
+      name: "",
       data(){
           return{
               user:{
@@ -60,7 +59,7 @@
           axios.post("")
         },
         findAll:function () {
-          axios.post("http://10.12.154.95:8030/like/findRandom").then(res=>{
+          axios.post("http://localhost:8030/like/findRandom").then(res=>{
               if (res.data.code==200){
                 console.log(res.data.data)
               }
@@ -111,6 +110,5 @@
     height: auto;
     width: auto;
   }
-
 
 </style>
