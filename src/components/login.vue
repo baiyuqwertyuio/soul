@@ -12,14 +12,14 @@
       <p style="color:black;font-size: 30px;">账号登录</p>
     <el-form :model="user" ref="user" label-width="100px" class="demo-dynamic"  style="width: 400px">
       <el-form-item
-        prop="userName"
-        label="昵称"
+        prop="email"
+        label="邮箱"
         :rules="[
       { required: true, message: '请输入昵称', trigger: 'blur' },
 
     ]"
       >
-        <el-input v-model="user.userName"></el-input>
+        <el-input v-model="user.email"></el-input>
       </el-form-item>
       <el-form-item
         prop="password"
@@ -49,7 +49,7 @@
       return {
         user: {
           password:'',
-          userName: ''
+          email: ''
         },
 
       };
@@ -62,7 +62,7 @@
         this.$refs[formName].validate((valid) => {
           console.log(this.user)
           if (valid) {
-            axios.post("http://localhost:8007/user/login",this.user).then(res =>{
+            axios.post("http://localhost:7000/s-user/user/login",this.user).then(res =>{
 
                 if (res.data.code == 200){
                   alert(res.data.message)
