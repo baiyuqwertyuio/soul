@@ -1,7 +1,7 @@
 <template>
   <div class="big_box">
     <div class="logo">
-      <img class="soul_logo" src="/static/image/b4fbcc9730c6295276ce896e36ea675.jpg"  width="80px" height="80px" >
+      <img class="soul_logo" src="../assets/soul_logo.jpg"  width="80px" height="80px" >
     </div>
     <div class="background">
       <video class="vid" autoplay loop muted playsinline preload="auto">
@@ -98,7 +98,7 @@
           this.$refs[formName].validate((valid) => {
             console.log(valid);
             if (valid) {
-              axios.post("http://localhost:7000/s-user/user/registry", this.user).then(res => {
+              axios.post("http://10.12.154.95:8007/user/registry", this.user).then(res => {
                 if (res.data.code == 200) {
                   alert("注册成功,请到该邮箱激活账号")
                   this.$router.push("/login")

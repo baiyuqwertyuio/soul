@@ -4,16 +4,16 @@
     <p class="brand">探探</p>
     <p>
       <el-input v-model="input" placeholder="根据昵称搜索附近人"></el-input>
-      <el-button  type="primary" icon="el-icon-search">搜索</el-button>
+      <el-button @click="like()" type="primary" icon="el-icon-search">搜索</el-button>
     </p>
     <p>
       <i  class="el-icon-s-home">探探</i>
       <i  class="el-icon-mobile">直播</i>
       <i  class="el-icon-s-custom">消息</i>
       <i  class="el-icon-magic-stick">社区</i>
-      <i v-if="user.userName==null||user.userName==''"  class="el-icon-s-custom">登录</i>
+      <i v-if="user.userName==null||user.userName==''" @click="login()" class="el-icon-s-custom">登录</i>
       <i v-if="user.userName!=null&&user.userName!=''" style="font-size: 20px;color: #409EFF">{{user.userName}}</i>
-      <i v-if="user.userName==null||user.userName==''"  class="el-icon-thumb">注册</i>
+      <i v-if="user.userName==null||user.userName==''" @click="registry()" class="el-icon-thumb">注册</i>
       <i v-if="user.userName!=null&&user.userName!=''"></i>
     </p >
   </div>
@@ -25,8 +25,7 @@
         name: "top",
       data(){
           return{
-            user: {},
-            input:''
+            user: {}
           }
       },
       methods:{
@@ -34,6 +33,9 @@
 
         },
         login:function () {
+
+        },
+        registry:function () {
 
         },
 

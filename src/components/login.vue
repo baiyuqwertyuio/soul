@@ -6,7 +6,7 @@
       </video>
     </div>
     <div class="logo">
-      <img class="soul_logo" src="/static/image/b4fbcc9730c6295276ce896e36ea675.jpg"  width="80px" height="80px" >
+      <img class="soul_logo" src="../assets/soul_logo.jpg"  width="80px" height="80px" >
     </div>
     <div class="topic">
       <p style="color:black;font-size: 30px;">账号登录</p>
@@ -15,8 +15,8 @@
         prop="email"
         label="邮箱"
         :rules="[
-      { required: true, message: '请输入邮箱', trigger: 'blur' },
-        { type: 'email', message: '请输入正确的邮箱地址', trigger: ['blur', 'change'] }
+      { required: true, message: '请输入昵称', trigger: 'blur' },
+
     ]"
       >
         <el-input v-model="user.email"></el-input>
@@ -41,7 +41,8 @@
 </template>
 
 <script>
-  import axios from 'axios';
+  import axios from 'axios'
+  axios.defaults.withCredentials=true
   export default {
     name: "login",
     data() {
@@ -62,21 +63,18 @@
           console.log(this.user)
           if (valid) {
             axios.post("http://localhost:7000/s-user/user/login",this.user).then(res =>{
-              if(res.data.code==401){
-                alert(res.data.message)
-              }else {
-                if (res.data.code == 200) {
+
+                if (res.data.code == 200){
                   alert(res.data.message)
-                  this.cookie.set("token", res.data.data);
-                  this.$router.push("/");
+                  this.cookie.set("token",res.data.data);
+                  this.$router.push("/sliding");
                 }
-                if (res.data.code == 404) {
+                if(res.data.code==404){
                   alert(res.data.message)
                 }
-                if (res.data.code == 500) {
+                if(res.data.code==500){
                   alert(res.data.message)
                 }
-              }
             })
           } else {
             console.log('error submit!!');
